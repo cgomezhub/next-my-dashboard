@@ -1,17 +1,21 @@
 import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/pokemons";
 
+export const metadata = {
+  title: "151 pokemons",
+  description: "Listado de 151 Pokemons estático",
+};
+
 const getpokemons = async (
   limit = 20,
   offset = 0
 ): Promise<SimplePokemon[]> => {
-  const response = await fetch(
+  const response: PokemonsResponse = await fetch(
     `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
-  );
-  const data: PokemonsResponse = await response.json();
+  ).then((res) => res.json());
 
   // console.log(data.results);
 
-  const pokemons = data.results.map((pokemon) => {
+  const pokemons = response.results.map((pokemon) => {
     return {
       name: pokemon.name,
       id: pokemon.url.split("/").at(-2)!,
