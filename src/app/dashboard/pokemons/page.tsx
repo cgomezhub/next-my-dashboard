@@ -22,8 +22,7 @@ const getpokemons = async (
     };
   });
 
-  // throw new Error("Error al cargar los pokemons");
-  // throw notFound();
+  
 
   return pokemons;
 };

@@ -1,9 +1,7 @@
 "use client";
 
-import  { useEffect } from "react";
 import { SimpleWidget } from "./SimpleWidget";
-import { useAppDispatch, useAppSelector } from "@/store";
-import { initCounterState } from "@/store/counter/counterSlice";
+import {  useAppSelector } from "@/store";
 import { IoCartOutline } from "react-icons/io5";
 
 interface Props {
@@ -13,11 +11,6 @@ interface Props {
 export const WidgetGrid = ({ value = 0 }: Props) => {
   const isCart = useAppSelector((state) => state.counter.count);
 
-  // const dispatch = useAppDispatch();
-
-  // useEffect(() => {
-  //   dispatch(initCounterState(value));
-  // }, [dispatch, value]);
 
   return (
     <div className="flex flex-wrap items-center justify-center">
